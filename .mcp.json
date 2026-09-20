@@ -1,0 +1,26 @@
+{
+    "mcpServers": {
+        "laravel-boost": {
+            "command": "php",
+            "args": [
+                "artisan",
+                "boost:mcp"
+            ]
+        },
+        "clerk": {
+            "url": "https://mcp.clerk.com/mcp"
+        },
+        "figma": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "figma-developer-mcp",
+                "--figma-api-key=${FIGMA_API_KEY}",
+                "--stdio"
+            ],
+            "env": {
+                "FIGMA_API_KEY": "${FIGMA_API_KEY}"
+            }
+        }
+    }
+}

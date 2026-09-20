@@ -1,0 +1,117 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+@theme {
+    --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+
+    --color-cobalt-50: #eff6ff;
+    --color-cobalt-100: #dbeafe;
+    --color-cobalt-500: #2863d1;
+    --color-cobalt-600: #1f51ad;
+    --color-cobalt-700: #1a4390;
+
+    --color-forest-50: #ecfdf5;
+    --color-forest-100: #d1fae5;
+    --color-forest-500: #20a774;
+    --color-forest-600: #178a5e;
+    --color-forest-700: #126e4c;
+
+    --color-sand-300: #f6c66a;
+    --color-sand-400: #f0b43e;
+
+    --color-cream: #faf9f5;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+section[id] {
+    scroll-margin-top: 90px;
+}
+
+/* Scroll-reveal */
+[data-reveal] {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+        opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+}
+
+[data-reveal='left'] {
+    transform: translateX(-36px);
+}
+
+[data-reveal='right'] {
+    transform: translateX(36px);
+}
+
+[data-reveal='zoom'] {
+    transform: scale(0.94);
+}
+
+[data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    [data-reveal] {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .animate-card-in {
+        animation: none;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* Card entrance (untuk konten yang di-render via JS) */
+@keyframes card-in {
+    from {
+        opacity: 0;
+        transform: translateY(18px) scale(0.99);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.animate-card-in {
+    animation: card-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+/* Navbar shadow saat scroll */
+[data-navbar] {
+    transition: box-shadow 0.3s ease;
+}
+
+[data-navbar].is-scrolled {
+    box-shadow: 0 8px 30px -12px rgba(15, 23, 42, 0.18);
+}
+
+/* Hero blob float */
+@keyframes float-slow {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-14px);
+    }
+}
+
+.animate-float-slow {
+    animation: float-slow 6s ease-in-out infinite;
+}
