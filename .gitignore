@@ -12,6 +12,11 @@
 /.phpunit.cache
 /.vscode
 /.zed
+/.antigravity
+/.agents/
+/.claude/
+/.ai/
+/.mcp.json
 /auth.json
 /docker-compose.override.yml
 /node_modules
